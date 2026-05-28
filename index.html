@@ -1,49 +1,403 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"><title>Privacy Policy – Learning Cards</title></head>
-<body style="font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6;">
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy – Learning Cards</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1a2e;
+      --accent: #4f6ef7;
+      --accent-light: #eef0ff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg: #fafafa;
+      --card: #ffffff;
+    }
 
-<h1>Privacy Policy – Learning Cards</h1>
-<p>Last updated: May 2026</p>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-<h2>1. Data We Collect</h2>
-<p>When you use Learning Cards, we collect the following information:</p>
-<ul>
-  <li>Email address (for account creation and login)</li>
-  <li>User-generated content (cards, lessons, and images you create)</li>
-  <li>Cards shared between users via the inbox feature</li>
-  <li>Profile information (display name, profile photo if provided)</li>
-</ul>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.75;
+      padding: 0 20px 80px;
+    }
 
-<h2>2. How We Use Your Data</h2>
-<ul>
-  <li>To provide account functionality (login, registration, password reset)</li>
-  <li>To store your cards and lessons on your device</li>
-  <li>To enable card sharing between users</li>
-  <li>To process in-app subscription purchases</li>
-</ul>
+    header {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
 
-<h2>3. Data Storage</h2>
-<p>Cards and lessons are stored <strong>on your device only</strong> (local storage) by default. Only account information, card sharing data, and premium subscription status are sent to Supabase servers.</p>
-<p>Data sent to Supabase is securely stored with SSL/TLS encryption. Images uploaded to cards and shared with others are stored in Supabase Storage.</p>
+    .app-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
 
-<h2>4. In-App Purchases</h2>
-<p>The app offers an optional annual premium subscription processed via Google Play Billing. We store your subscription status but do not store any payment information. All payments are handled entirely by Google Play.</p>
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
 
-<h2>5. Data Sharing</h2>
-<p>We do not sell, trade, or share your personal data with third parties. Card sharing only occurs between users you explicitly choose to send cards to.</p>
+    .meta {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 400;
+    }
 
-<h2>6. Data Deletion</h2>
-<p>You can permanently delete your account and all associated server data at any time via <strong>Settings → Delete Account</strong>. This action is irreversible and will delete your email, profile information, shared cards, and premium status. Local cards and lessons on your device are automatically deleted when you uninstall the app.</p>
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
 
-<h2>7. Children's Privacy</h2>
-<p>Learning Cards is not intended for children under the age of 13. We do not knowingly collect data from children under 13.</p>
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+    }
 
-<h2>8. Changes to This Policy</h2>
-<p>We may update this policy from time to time. Continued use of the app after any changes constitutes your acceptance of the new policy.</p>
+    .section-number {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
 
-<h2>9. Contact</h2>
-<p>For privacy-related questions, reach us at: <a href="learningcards1@gmail.com">learningcards1@gmail.com</a></p>
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 15px;
+      color: #374151;
+      margin-bottom: 12px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    ul li {
+      font-size: 15px;
+      color: #374151;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: .6;
+    }
+
+    strong { font-weight: 500; color: var(--ink); }
+
+    .highlight-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin-top: 16px;
+      font-size: 14px;
+      color: #3730a3;
+    }
+
+    .warning-box {
+      background: #fff7ed;
+      border-left: 3px solid #f97316;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin-top: 16px;
+      font-size: 14px;
+      color: #9a3412;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--accent-light);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-top: 8px;
+    }
+
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 2px;
+      font-weight: 400;
+    }
+
+    .contact-email {
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--accent);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 14px;
+    }
+
+    th {
+      text-align: left;
+      padding: 10px 14px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    th:first-child { border-radius: 8px 0 0 0; }
+    th:last-child { border-radius: 0 8px 0 0; }
+
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: #374151;
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    footer {
+      max-width: 720px;
+      margin: 48px auto 0;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="app-badge">📚 Learning Cards</div>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Last updated: May 2026 &nbsp;·&nbsp; Effective immediately</p>
+</header>
+
+<main>
+
+  <!-- 1 -->
+  <section>
+    <div class="section-number">Section 01</div>
+    <h2>Data We Collect</h2>
+    <p>When you use Learning Cards, we may collect the following categories of information:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Data Type</th>
+          <th>Purpose</th>
+          <th>Stored Where</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Email address</strong></td>
+          <td>Account creation, login, password reset</td>
+          <td>Supabase servers</td>
+        </tr>
+        <tr>
+          <td><strong>Display name &amp; profile photo</strong></td>
+          <td>User profile (optional)</td>
+          <td>Supabase servers</td>
+        </tr>
+        <tr>
+          <td><strong>Cards &amp; lessons</strong></td>
+          <td>Core app functionality</td>
+          <td>Device only (local)</td>
+        </tr>
+        <tr>
+          <td><strong>Shared card content</strong></td>
+          <td>Card sharing between users</td>
+          <td>Supabase servers (temporary)</td>
+        </tr>
+        <tr>
+          <td><strong>Images uploaded to cards</strong></td>
+          <td>Card media</td>
+          <td>Supabase Storage</td>
+        </tr>
+        <tr>
+          <td><strong>Premium subscription status</strong></td>
+          <td>Unlocking premium features</td>
+          <td>Supabase servers</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-box">
+      📷 <strong>Camera &amp; Photo Library:</strong> The app may request access to your camera and photo library to let you add images to cards. This access is used solely to attach images you choose — we do not access your photos without your explicit action.
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section>
+    <div class="section-number">Section 02</div>
+    <h2>How We Use Your Data</h2>
+    <ul>
+      <li>To authenticate your account and keep it secure</li>
+      <li>To sync your profile and subscription status across devices</li>
+      <li>To enable the card sharing (inbox) feature between users</li>
+      <li>To process and verify in-app subscription purchases via Google Play</li>
+      <li>To respond to account deletion requests and support inquiries</li>
+    </ul>
+    <p style="margin-top:16px;">We do <strong>not</strong> use your data for advertising, profiling, or any purpose beyond what is listed above.</p>
+  </section>
+
+  <!-- 3 -->
+  <section>
+    <div class="section-number">Section 03</div>
+    <h2>Data Storage &amp; Security</h2>
+    <p>Cards and lessons are stored <strong>on your device only</strong> by default. Only the data listed in Section 1 as "Supabase servers" leaves your device.</p>
+    <p>All data transmitted to Supabase is encrypted in transit using SSL/TLS. Supabase uses Row Level Security (RLS) policies so that each user can only access their own data.</p>
+    <p><strong>Data retention:</strong> Account data is retained until you delete your account. Shared card data sent to another user's inbox is retained until that user accepts or dismisses it. Images are deleted from Supabase Storage when the associated card or account is deleted.</p>
+  </section>
+
+  <!-- 4 -->
+  <section>
+    <div class="section-number">Section 04</div>
+    <h2>In-App Purchases</h2>
+    <p>The app offers an optional annual Premium subscription ($4.99/year) processed entirely by <strong>Google Play Billing</strong>. We do not store any payment card or billing information. We only store your subscription status and expiry date to unlock premium features.</p>
+    <p>Subscription management and cancellation can be done directly from the Google Play app under <em>Subscriptions</em>.</p>
+  </section>
+
+  <!-- 5 -->
+  <section>
+    <div class="section-number">Section 05</div>
+    <h2>Data Sharing</h2>
+    <p>We do <strong>not sell, rent, or trade</strong> your personal data with any third parties.</p>
+    <p>The only sharing that occurs:</p>
+    <ul>
+      <li><strong>Card sharing:</strong> When you explicitly send a card to another user by their email address, that card content is transmitted to their inbox. The recipient can see your display name and email.</li>
+      <li><strong>Supabase:</strong> Our backend infrastructure provider. Data is processed per their <a href="https://supabase.com/privacy" target="_blank">Privacy Policy</a>.</li>
+      <li><strong>Google Play:</strong> Subscription status is verified via Google Play. Subject to Google's <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a>.</li>
+    </ul>
+  </section>
+
+  <!-- 6 -->
+  <section>
+    <div class="section-number">Section 06</div>
+    <h2>Your Rights &amp; Data Deletion</h2>
+    <p>You have the right to access, correct, or delete your personal data at any time.</p>
+    <p><strong>To delete your account and all server data:</strong> Go to <em>Settings → Delete Account</em> inside the app. This is permanent and irreversible — it deletes your email, profile, shared cards, uploaded images, and subscription status from our servers.</p>
+    <p><strong>To delete local data:</strong> Uninstall the app. All locally stored cards and lessons are removed automatically.</p>
+
+    <div class="highlight-box">
+      🇪🇺 <strong>GDPR (EU users):</strong> You have rights of access, rectification, erasure, and data portability. To exercise these rights, contact us at the address in Section 9.
+    </div>
+    <div class="highlight-box" style="margin-top:10px; background:#f0fdf4; border-color: #16a34a; color: #14532d;">
+      🇹🇷 <strong>KVKK (Türkiye kullanıcıları):</strong> 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında verilerinize erişim, düzeltme ve silme haklarına sahipsiniz. Talepleriniz için aşağıdaki iletişim adresine başvurabilirsiniz.
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section>
+    <div class="section-number">Section 07</div>
+    <h2>Children's Privacy</h2>
+    <p>Learning Cards is a general-purpose educational app and is not directed at children under 13. We do not knowingly collect personal data from children under 13.</p>
+    <div class="warning-box">
+      ⚠️ If you are a parent or guardian and believe your child under 13 has created an account, please contact us immediately so we can delete their data.
+    </div>
+    <p style="margin-top:16px;">The app includes user-generated content and person-to-person card sharing. If used by minors aged 13–17, parental guidance is recommended when interacting with the sharing features.</p>
+  </section>
+
+  <!-- 8 -->
+  <section>
+    <div class="section-number">Section 08</div>
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date at the top of this page.</p>
+    <p>For significant changes, we will make reasonable efforts to notify users (for example, via an in-app notice). Continued use of the app after changes take effect constitutes your acceptance of the updated policy.</p>
+  </section>
+
+  <!-- 9 -->
+  <section>
+    <div class="section-number">Section 09</div>
+    <h2>Contact</h2>
+    <p>For privacy questions, data requests, or to report a concern:</p>
+    <div class="contact-card">
+      <div class="contact-icon">✉</div>
+      <div>
+        <div class="contact-label">Email</div>
+        <a href="mailto:learningcards1@gmail.com" class="contact-email">learningcards1@gmail.com</a>
+      </div>
+    </div>
+    <p style="margin-top:16px; font-size:13px; color: var(--muted);">We aim to respond to all privacy-related requests within 30 days.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Learning Cards · All rights reserved</p>
+</footer>
 
 </body>
 </html>
